@@ -18,6 +18,8 @@ var templates = template.Must(template.ParseFiles(
 	"pages/home.tmpl",
 ))
 
+//
+
 // View
 type View struct{}
 
