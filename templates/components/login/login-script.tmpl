@@ -1,0 +1,11 @@
+{{define "login-script"}}
+    <script type="text/javascript">
+      var lock = new Auth0Lock('L5pcKk1Nswc5aDK6pr5KJ5uEB8WUa6v8', 'laux.auth0.com', {
+        auth: {
+          redirectUrl: 'http://localhost:8080/'
+        }
+      });
+      
+      lock.show();
+    </script>
+{{end}}

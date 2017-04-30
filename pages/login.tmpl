@@ -1,0 +1,29 @@
+{{define "login"}}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Micro Login</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+
+    <style type="text/css">
+        #login {
+            width: 320px; 
+            margin: 40px auto; 
+            padding: 10px; 
+            border-style: none; 
+            border-width: 1px; 
+            box-sizing: border-box;
+        }
+    </style>
+
+</head>
+<body>
+<img alt="avatar" id="avatar" style="display:none;">
+<p>Welcome <span id="nickname"></span></p>
+{{template "login-element" .}}
+{{template "login-cdn-library" .}}
+{{template "login-script" .}}
+</body>
+</html>
+{{end}}

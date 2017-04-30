@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Micro Login</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+    <script src="http://cdn.auth0.com/js/lock/10.15.1/lock.min.js"></script>
+
+    <style type="text/css">
+        #login {
+            width: 320px; 
+            margin: 40px auto; 
+            padding: 10px; 
+            border-style: none; 
+            border-width: 1px; 
+            box-sizing: border-box;
+        }
+    </style>
+
+</head>
+<body>
+    <div id="login-inline"></div>
+    <script type="text/javascript">
+      var lock = new Auth0Lock('L5pcKk1Nswc5aDK6pr5KJ5uEB8WUa6v8', 'laux.auth0.com', {
+        container: 'login-inline',
+        auth: {
+          redirectUrl: 'https://YOUR_APP/callback',
+          responseType: 'code',
+          params: {
+            scope: 'openid' // Learn about scopes: https://auth0.com/docs/scopes
+          }
+        }
+      });
+      
+      lock.show();
+
+      lock.on("authenticated", function(authResult) {
+        lock.getProfile(authResult.idToken, function(error, profile) {
+          if (error) {
+          // Handle error
+          return;
+        }
+        localStorage.setItem('id_token', authResult.idToken);
+        // Display user information
+        show_profile_info(profile);
+      });
+      });
+    </script>
+</body>
+
+</html>
