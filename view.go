@@ -16,9 +16,8 @@ var templates = template.Must(template.ParseFiles(
 	"templates/components/login/login-return-script.tmpl",
 	"pages/login.tmpl",
 	"pages/home.tmpl",
+	"pages/profile.tmpl",
 ))
-
-//
 
 // View
 type View struct{}
@@ -38,12 +37,22 @@ func (v View) Profile(wr io.Writer, p m.ProfileProvider) {
 
 	// create instance variable for view
 	profile := struct {
-		GithubName string
+		Address    string
+		Company    string
+		DOB        string
 		FirstName  string
+		Gender     string
+		GithubName string
+		JobRole    string
 		LastName   string
 	}{
-		p.GithubName(),
+		p.Address(),
+		p.Company(),
+		p.DOB(),
 		p.FirstName(),
+		p.Gender(),
+		p.GithubName(),
+		p.JobRole(),
 		p.LastName(),
 	}
 

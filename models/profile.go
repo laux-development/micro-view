@@ -1,7 +1,12 @@
 package models
 
 type ProfileProvider interface {
-	GithubName() string
+	Address() string
+	Company() string
+	DOB() string
 	FirstName() string
+	Gender() string
+	GithubName() string
+	JobRole() string
 	LastName() string
 }

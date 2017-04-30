@@ -1,12 +1,22 @@
+{{define "profile"}}
 <html>
     <head>
     <title>Micro Profile</title>
     </head>
     <body>
-        <form action="/login" method="post">
-            Username:<input type="text" name="username">
-            Password:<input type="password" name="password">
-            <input type="submit" value="Login">
+        <form action="/profile" method="post">
+
+            GithubName:<input type="text" name="GithubName" value="{{.GithubName}}">
+            FirstName:<input type="text" name="FirstName" value="{{.FirstName}}">
+            LastName:<input type="text" name="LastName" value="{{.LastName}}">
+            Address:<input type="text" name="Address" value="{{.Address}}">
+            Company:<input type="text" name="Company" value="{{.Company}}">
+            JobRole:<input type="text" name="JobRole" value="{{.JobRole}}">
+            DOB:<input type="text" name="DOB" value="{{.DOB}}">
+            Gender:<input type="text" name="Gender" value="{{.Gender}}">
+
+            <input type="submit" value="Update Profile">
         </form>
     </body>
 </html>
+{{end}}
